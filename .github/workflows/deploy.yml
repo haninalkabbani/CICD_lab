@@ -21,8 +21,8 @@ steps:
   - name: Deploy to Fabric Production
     run: |
       fabric-cicd deploy \
-        --source-workspace "<DEV_WORKSPACE_NAME>" \
-        --target-workspace "<PROD_WORKSPACE_NAME>" \
+        --source-workspace "Fabric_lab_1_Dev>" \
+        --target-workspace "<Fabric_lab_1_Prd>" \
         --tenant-id "${{ secrets.TENANT_ID }}" \
         --client-id "${{ secrets.CLIENT_ID }}" \
         --client-secret "${{ secrets.CLIENT_SECRET }}"
