@@ -1,0 +1,322 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "gold",
+                "table": "dim_customer"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Fabric_lab_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "2628424e-a866-b4a3-4451-88b7226c5c11",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "writeBehavior": "Upsert",
+            "upsertSettings": {
+              "keys": [
+                "customer_key"
+              ]
+            },
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "DimCustomer"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "sales_warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "33c542ea-c8c2-419c-a576-e50f68fa1d60",
+                    "endpoint": "raqjpn5s6hkujjmgs4q63vxywm-b34ggjffsepuvnn4hjx3ydhv74.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "2463f80e-91a5-4a1f-b5bc-3a6fbc0cf5ff"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy DimCustomer",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "gold",
+                "table": "dim_product"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Fabric_lab_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "2628424e-a866-b4a3-4451-88b7226c5c11",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "writeBehavior": "Upsert",
+            "upsertSettings": {
+              "keys": [
+                "product_key"
+              ]
+            },
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "DimProduct"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "sales_warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "33c542ea-c8c2-419c-a576-e50f68fa1d60",
+                    "endpoint": "raqjpn5s6hkujjmgs4q63vxywm-b34ggjffsepuvnn4hjx3ydhv74.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "2463f80e-91a5-4a1f-b5bc-3a6fbc0cf5ff"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy DimProduct",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "gold",
+                "table": "dim_date"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Fabric_lab_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "2628424e-a866-b4a3-4451-88b7226c5c11",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "writeBehavior": "Upsert",
+            "upsertSettings": {
+              "keys": [
+                "date_key"
+              ]
+            },
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "DimDate"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "sales_warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "33c542ea-c8c2-419c-a576-e50f68fa1d60",
+                    "endpoint": "raqjpn5s6hkujjmgs4q63vxywm-b34ggjffsepuvnn4hjx3ydhv74.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "2463f80e-91a5-4a1f-b5bc-3a6fbc0cf5ff"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy DimDate",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "gold",
+                "table": "fact_sales"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Fabric_lab_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "2628424e-a866-b4a3-4451-88b7226c5c11",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "writeBehavior": "Upsert",
+            "upsertSettings": {
+              "keys": [
+                "sales_order_number"
+              ]
+            },
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "FactSales"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "sales_warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "33c542ea-c8c2-419c-a576-e50f68fa1d60",
+                    "endpoint": "raqjpn5s6hkujjmgs4q63vxywm-b34ggjffsepuvnn4hjx3ydhv74.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "2463f80e-91a5-4a1f-b5bc-3a6fbc0cf5ff"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy FactSales",
+        "dependsOn": []
+      }
+    ]
+  }
+}

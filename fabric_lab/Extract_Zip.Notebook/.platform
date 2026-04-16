@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Extract_Zip"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a2ba1b26-716b-aff5-43e0-fed9733e54be"
+  }
+}
