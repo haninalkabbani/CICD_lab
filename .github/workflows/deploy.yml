@@ -1,0 +1,29 @@
+name: Deploy to Production
+
+on:
+push:
+branches:
+- main
+
+jobs:
+deploy:
+runs-on: ubuntu-latest
+
+```
+steps:
+  - name: Checkout repo
+    uses: actions/checkout@v3
+
+  - name: Install Fabric CICD package
+    run: |
+      pip install fabric-cicd
+
+  - name: Deploy to Fabric Production
+    run: |
+      fabric-cicd deploy \
+        --source-workspace "<DEV_WORKSPACE_NAME>" \
+        --target-workspace "<PROD_WORKSPACE_NAME>" \
+        --tenant-id "${{ secrets.TENANT_ID }}" \
+        --client-id "${{ secrets.CLIENT_ID }}" \
+        --client-secret "${{ secrets.CLIENT_SECRET }}"
+```
