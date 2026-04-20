@@ -30,3 +30,4 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: |
           python deploy_fabric.py
+ 
