@@ -19,11 +19,14 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install fabric-cicd azure-identity
+        run: |
+          python -m pip install --upgrade pip
+          pip install fabric-cicd azure-identity
 
-      - name: Run deployment
+      - name: Run Fabric deployment
         env:
           TENANT_ID: ${{ secrets.TENANT_ID }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: echo "YAML is now valid"
+        run: |
+          python deploy_fabric.py
