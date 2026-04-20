@@ -21,3 +21,4 @@ target_workspace = FabricWorkspace(
 )
 
 publish_all_items(target_workspace)
+
